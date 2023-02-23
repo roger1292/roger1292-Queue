@@ -1,3 +1,4 @@
+import java.util.ArrayDeque;
 import java.util.Deque;
 import java.util.Queue;
 
@@ -5,16 +6,16 @@ import java.util.Queue;
  * Queues are FIFO - first in, first out, like a checkout line. They are used in algorithms where it is needed to keep
  * track of the order that the elements were inserted in. For instance, tech support tickets may be
  * waiting in a queue until a tech support specialist can clear them.
- * 
- * For instance, 
+ *
+ * For instance,
  * adding to back of the queue:
  * 1 | 1 | 1
- *   | 2 | 2 
+ *   | 2 | 2
  *   |   | 3
  * then, removing from front of queue:
  * 1 | 2 | 3
- * 2 | 3 |  
- * 3 |   |  
+ * 2 | 3 |
+ * 3 |   |
  *
  * ArrayDeque fills the role of *both* queues and stacks. You could think of a Deque as a deck of cards (pronounced the
  * same) where you could remove cards  from either the top or bottom. You can use ArrayDeque
@@ -36,7 +37,8 @@ public class Lab {
      * Stack behavior.
      */
     public Deque<String> createQueue(){
-        return null;
+        Queue<String> queue = new ArrayDeque<>();
+        return (Deque<String>) queue;
     }
 
     /**
@@ -45,7 +47,7 @@ public class Lab {
      * @return the length of queue.
      */
     public int getSize(Queue<String> queue){
-        return 0;
+        return queue.size();
     }
 
     /**
@@ -55,7 +57,7 @@ public class Lab {
      * @param item a String that should be added to Queue.
      */
     public void addToEndOfQueue(Queue<String> queue, String item){
-
+        queue.add(item);
     }
 
     /**
@@ -65,7 +67,8 @@ public class Lab {
      * @return the next String due to be removed (polled) from the Queue<String> (the oldest item in the queue.)
      */
     public String removeFromStartOfQueue(Queue<String> queue){
-        return "";
+        String firstElement = queue.remove();
+        return firstElement;
     }
 
     /**
@@ -75,6 +78,7 @@ public class Lab {
      * @return the next String due to be removed (peeked) from the Queue<String> (the oldest item in the queue.)
      */
     public String getStartOfQueueWithoutRemoving(Queue<String> queue){
-        return "";
+        String firstElement = queue.peek();
+        return firstElement;
     }
 }
